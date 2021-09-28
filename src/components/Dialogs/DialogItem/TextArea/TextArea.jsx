@@ -1,24 +1,34 @@
 import React from 'react';
 import s from '../../Dialogs.module.css'
+import {addMessage, changeMessageText} from "../../../../redux/State";
 
 
 const TextArea = (props) => {
-    let addNewMessage = React.createRef();
+    let newMessageElement = React.createRef();
     let addMessage = () => {
-        let message = addNewMessage.current.value
-        alert(message)
+        props.addMessage()
+    }
+    let onMessageChange = () => {
+        let text = newMessageElement.current.value;
+        props.changeMessageText(text)
     }
 
-    return (
+return (
+    <div>
         <div>
-            <div >
-                <textarea className={s.textArea} ref={addNewMessage}>Start typing...</textarea>
-            </div>
-            <div className={s.buttonBlock}>
-                <button className={s.button} onClick={addMessage}><span>Send message</span></button>
-            </div>
+            <textarea
+                onClick={()=>{props.changeMessageText("")}}
+                onChange={onMessageChange} className={s.textArea}
+                ref={newMessageElement}
+                value={props.newMessageText}>
+                Start typing...
+            </textarea>
         </div>
-    )
+        <div className={s.buttonBlock}>
+            <button className={s.button} onClick={addMessage}><span>Send message</span></button>
+        </div>
+    </div>
+)
 }
 
 

@@ -17,7 +17,7 @@ let state =
                     likesCount: 18
                 },
             ],
-            newPostText: 'it-kamasutra.com'
+            newPostText: "Start typing..."
         },
 
         dialogsPage: {
@@ -55,8 +55,10 @@ let state =
                 {id: '4', message: 'Hello. Where are you from? 4'},
                 {id: '5', message: 'Hello. Where are you from? 5'},
 
-            ]
+            ],
+            newMessageText: "Start typing..."
         },
+
         sideBar: {
             friend: [
                 {
@@ -88,22 +90,40 @@ let state =
                 },
             ]
 
-        }
+        },
     }
-
-export let addPost = (postMessage) => {
+window.state = state;
+export let addPost = (e) => {
     let newPost = {
         id: 5,
-        message: postMessage,
+        message: state.profilePage.newPostText,
         img: 'https://www.film.ru/sites/default/files/filefield_paths/maxresdefault_1_24.jpg',
         likesCount: 0
     };
     state.profilePage.postsData.push(newPost);
+    state.profilePage.newPostText = '';
+    rerenderEntireTree(state);
+}
+export let changeText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+
+}
+
+
+
+export let addMessage = (e) => {
+    let newMessage = {
+        id: 6,
+        message: state.dialogsPage.newMessageText,
+    };
+    state.dialogsPage.messages.push(newMessage);
+    state.dialogsPage.newMessageText = '';
     rerenderEntireTree(state);
 }
 
-export let changeText = (newText) => {
-    state.profilePage.newPostText = newText;
+export let changeMessageText = (newText) => {
+    state.dialogsPage.newMessageText = newText;
     rerenderEntireTree(state);
 
 }
