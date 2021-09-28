@@ -1,0 +1,33 @@
+.nav {
+    grid-area: n;
+    background-color: burlywood;
+    /*padding: 20px;*/
+
+}
+
+
+.item a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    width: 80%;
+    padding: 5% 10%;
+}
+
+.item a:hover {
+    background: gold;
+    opacity: 80%;
+    transition: 500ms;
+}
+
+.item a:active {
+    color: red;
+
+}
+
+.item a.active {
+    color: blue;
+}
+
+
+

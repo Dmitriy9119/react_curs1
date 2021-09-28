@@ -1,0 +1,154 @@
+.dialogs {
+    display: grid;
+    width: 100%;
+    grid-template-areas: "dE mE" "dE tA ";
+    grid-template-columns: 30% 70%;
+    color: white;
+}
+
+.dialogs a {
+    color: white;
+    text-decoration: none;
+}
+
+.dialogs a.active {
+    color: blue;
+    font-weight: bold;
+    text-decoration: underline;
+
+}
+
+.dialogsElements {
+    grid-area: dE;
+    border-right: 1px solid #C0C0C0
+}
+
+.messagesElements {
+    grid-area: mE;
+    border-bottom: 1px solid #C0C0C0;
+}
+
+.textArea {
+    grid-area: tA;
+    margin: 3%;
+    padding: 30px 10px 10px 10px;
+    border-radius: 20px;
+    color: white;
+    background-color: green;
+    min-height: 180px;
+    width: 87%;
+}
+
+/*textarea {*/
+/*    width: 1000px;*/
+/*}*/
+
+
+.buttonBlock {
+    text-align: right;
+    margin: -12.5% 0 0 28.5%;
+    position: absolute;
+}
+
+.button {
+    text-align: center;
+    border-radius: 10px;
+    background-color: green;
+    padding: 5px;
+}
+
+.button > span {
+    color: white;
+    display: inline-block;
+}
+
+
+.myMessage {
+    max-width: 50%;
+    background-color: blue;
+    padding: 10px;
+    border-radius: 30px;
+    margin: 20px;
+    opacity: 70%;
+    max-height: 10%;
+}
+
+.myMessage > span {
+    display: inline-block;
+    text-align: center;
+    margin: 4% 0;
+}
+
+.userMessage {
+    background-color: grey;
+    margin: 20px 20px 20px 40%;
+}
+
+.userMessage img {
+    text-align: left;
+
+}
+
+
+.dialogs {
+
+}
+
+.mainDialog {
+
+}
+
+.mainDialog .textarea {
+}
+
+.dialogsItem {
+
+    padding: 10px;
+
+}
+
+.dialog {
+    margin: 10px;
+}
+
+.dialog img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.dialogsItem .dialog {
+
+    /*padding: 10px;*/
+}
+
+.dialogsItem a {
+    color: white;
+}
+
+.dialogsItem a.active {
+    color: gold;
+}
+
+
+.dialogsItem .dialog a {
+    text-decoration: none;
+}
+
+
+.message {
+    text-align: center;
+}
+
+.message img {
+    width: 40px;
+    margin: 0 30px 10px 0;
+}
+
+
+.messages {
+    padding: 10px;
+    color: white;
+}
+
+
+
