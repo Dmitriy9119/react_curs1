@@ -108,12 +108,4 @@ export let changeText = (newText) => {
 
 }
 
-
-
-
-
-
-
-
-
 export default state;
