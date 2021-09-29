@@ -1,6 +1,5 @@
 import React from 'react';
 import s from './Dialogs.module.css'
-import {NavLink} from "react-router-dom";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./DialogItem/Message/Message";
 import TextArea from "./DialogItem/TextArea/TextArea";
@@ -22,7 +21,6 @@ const Dialogs = (props) => {
                 newMessageText={props.state.newMessageText}
             /></div>
         </div>
-
     )
 }
 export default Dialogs;

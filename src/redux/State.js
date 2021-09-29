@@ -1,4 +1,4 @@
-import {rerenderEntireTree} from "../Render";
+let  rerenderEntireTree = () => {}
 
 let state =
     {
@@ -126,6 +126,10 @@ export let changeMessageText = (newText) => {
     state.dialogsPage.newMessageText = newText;
     rerenderEntireTree(state);
 
+}
+
+export let subscribe = (observer) => {
+    rerenderEntireTree = observer
 }
 
 export default state;
