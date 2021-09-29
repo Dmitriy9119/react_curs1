@@ -21,7 +21,6 @@ return (
                 onChange={onMessageChange} className={s.textArea}
                 ref={newMessageElement}
                 value={props.newMessageText}>
-                Start typing...
             </textarea>
         </div>
         <div className={s.buttonBlock}>

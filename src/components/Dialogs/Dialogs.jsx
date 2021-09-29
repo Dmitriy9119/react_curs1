@@ -5,8 +5,6 @@ import DialogItem from "./DialogItem/DialogItem";
 import Message from "./DialogItem/Message/Message";
 import TextArea from "./DialogItem/TextArea/TextArea";
 
-let someLink = React.c
-
 const Dialogs = (props) => {
 
 // props.state.dialogs, props.state.messages]
@@ -20,7 +18,8 @@ const Dialogs = (props) => {
             <div className={s.messagesElements}>{messagesElements}</div>
             <div><TextArea
                 addMessage={props.addMessage}
-                changeMessageText={props.changeMessageText}
+                changeMessageText={props.changeMessageText}git
+                newMessageText={props.state.newMessageText}
             /></div>
         </div>
 
