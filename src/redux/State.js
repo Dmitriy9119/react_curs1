@@ -1,5 +1,5 @@
 let store = {
-    _rerenderEntireTree() {
+    _callSubscriber () {
     },
     _state: {
         profilePage: {
@@ -105,11 +105,11 @@ let store = {
         };
         this._state.profilePage.postsData.push(newPost);
         this._state.profilePage.newPostText = '';
-        this._rerenderEntireTree(this._state);
+        this._callSubscriber(this._state);
     },
     changeText(newText) {
         this._state.profilePage.newPostText = newText;
-        this._rerenderEntireTree(this._state);
+        this._callSubscriber(this._state);
     },
     addMessage(e) {
         let newMessage = {
@@ -118,14 +118,14 @@ let store = {
         };
         this._state.dialogsPage.messages.push(newMessage);
         this._state.dialogsPage.newMessageText = '';
-        this._rerenderEntireTree(this._state);
+        this._callSubscriber(this._state);
     },
     changeMessageText(newText) {
         this._state.dialogsPage.newMessageText = newText;
-        this._rerenderEntireTree(this._state);
+        this._callSubscriber(this._state);
     },
     subscribe (observer) {
-        this._rerenderEntireTree = observer
+        this._callSubscriber = observer
     }
 }
 
