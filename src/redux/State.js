@@ -1,5 +1,5 @@
 let store = {
-    rerenderEntireTree() {
+    _rerenderEntireTree() {
     },
     _state: {
         profilePage: {
@@ -105,11 +105,11 @@ let store = {
         };
         this._state.profilePage.postsData.push(newPost);
         this._state.profilePage.newPostText = '';
-        this.rerenderEntireTree(this._state);
+        this._rerenderEntireTree(this._state);
     },
     changeText(newText) {
         this._state.profilePage.newPostText = newText;
-        this.rerenderEntireTree(this._state);
+        this._rerenderEntireTree(this._state);
     },
     addMessage(e) {
         let newMessage = {
@@ -118,17 +118,18 @@ let store = {
         };
         this._state.dialogsPage.messages.push(newMessage);
         this._state.dialogsPage.newMessageText = '';
-        this.rerenderEntireTree(this._state);
+        this._rerenderEntireTree(this._state);
     },
     changeMessageText(newText) {
         this._state.dialogsPage.newMessageText = newText;
-        this.rerenderEntireTree(this._state);
+        this._rerenderEntireTree(this._state);
     },
     subscribe (observer) {
-        this.rerenderEntireTree = observer
+        this._rerenderEntireTree = observer
     }
 }
 
 window.store= store;
+window.state=store.getState();
 
 export default store;
