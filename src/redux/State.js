@@ -1,7 +1,7 @@
-let  rerenderEntireTree = () => {}
-
-let state =
-    {
+let store = {
+    rerenderEntireTree() {
+    },
+    _state: {
         profilePage: {
             postsData: [
                 {
@@ -91,45 +91,42 @@ let state =
             ]
 
         },
+    },
+    getState() {
+        return this._state
+    },
+    // window.store.getState()= state;
+    addPost(e) {
+        let newPost = {
+            id: 5,
+            message: this._state.profilePage.newPostText,
+            img: 'https://www.film.ru/sites/default/files/filefield_paths/maxresdefault_1_24.jpg',
+            likesCount: 0
+        };
+        this._state.profilePage.postsData.push(newPost);
+        this._state.profilePage.newPostText = '';
+        this.rerenderEntireTree(this._state);
+    },
+    changeText(newText) {
+        this._state.profilePage.newPostText = newText;
+        this.rerenderEntireTree(this._state);
+    },
+    addMessage(e) {
+        let newMessage = {
+            id: 6,
+            message: this._state.dialogsPage.newMessageText,
+        };
+        this._state.dialogsPage.messages.push(newMessage);
+        this._state.dialogsPage.newMessageText = '';
+        this.rerenderEntireTree(this._state);
+    },
+    changeMessageText(newText) {
+        this._state.dialogsPage.newMessageText = newText;
+        this.rerenderEntireTree(this._state);
+    },
+    subscribe (observer) {
+        this.rerenderEntireTree = observer
     }
-window.state = state;
-export let addPost = (e) => {
-    let newPost = {
-        id: 5,
-        message: state.profilePage.newPostText,
-        img: 'https://www.film.ru/sites/default/files/filefield_paths/maxresdefault_1_24.jpg',
-        likesCount: 0
-    };
-    state.profilePage.postsData.push(newPost);
-    state.profilePage.newPostText = '';
-    rerenderEntireTree(state);
-}
-export let changeText = (newText) => {
-    state.profilePage.newPostText = newText;
-    rerenderEntireTree(state);
-
 }
 
-
-
-export let addMessage = (e) => {
-    let newMessage = {
-        id: 6,
-        message: state.dialogsPage.newMessageText,
-    };
-    state.dialogsPage.messages.push(newMessage);
-    state.dialogsPage.newMessageText = '';
-    rerenderEntireTree(state);
-}
-
-export let changeMessageText = (newText) => {
-    state.dialogsPage.newMessageText = newText;
-    rerenderEntireTree(state);
-
-}
-
-export let subscribe = (observer) => {
-    rerenderEntireTree = observer
-}
-
-export default state;
+export default store;
