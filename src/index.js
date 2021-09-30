@@ -12,7 +12,7 @@ export let rerenderEntireTree = (state) => {
     ReactDOM.render
     (<BrowserRouter>
         <App
-            state={store.getState()}
+            state={state}
             addPost={store.addPost.bind(store)}
             changeText={store.changeText.bind(store)}
             addMessage={store.addMessage.bind(store)}
