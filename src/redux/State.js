@@ -95,7 +95,7 @@ let store = {
     getState() {
         return this._state
     },
-    // window.store.getState()= state;
+
     addPost(e) {
         let newPost = {
             id: 5,
@@ -128,5 +128,7 @@ let store = {
         this.rerenderEntireTree = observer
     }
 }
+
+window.store= store;
 
 export default store;
