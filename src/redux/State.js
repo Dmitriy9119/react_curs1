@@ -1,5 +1,5 @@
 let store = {
-    _callSubscriber () {
+    _callSubscriber() {
     },
     _state: {
         profilePage: {
@@ -17,7 +17,7 @@ let store = {
                     likesCount: 18
                 },
             ],
-            newPostText: "Start typing..."
+            newPostText: ""
         },
 
         dialogsPage: {
@@ -56,7 +56,7 @@ let store = {
                 {id: '5', message: 'Hello. Where are you from? 5'},
 
             ],
-            newMessageText: "Start typing..."
+            newMessageText: ""
         },
 
         sideBar: {
@@ -95,41 +95,40 @@ let store = {
     getState() {
         return this._state
     },
-
-    addPost(e) {
-        let newPost = {
-            id: 5,
-            message: this._state.profilePage.newPostText,
-            img: 'https://www.film.ru/sites/default/files/filefield_paths/maxresdefault_1_24.jpg',
-            likesCount: 0
-        };
-        this._state.profilePage.postsData.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._callSubscriber(this._state);
-    },
-    changeText(newText) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state);
-    },
-    addMessage(e) {
-        let newMessage = {
-            id: 6,
-            message: this._state.dialogsPage.newMessageText,
-        };
-        this._state.dialogsPage.messages.push(newMessage);
-        this._state.dialogsPage.newMessageText = '';
-        this._callSubscriber(this._state);
-    },
-    changeMessageText(newText) {
-        this._state.dialogsPage.newMessageText = newText;
-        this._callSubscriber(this._state);
-    },
-    subscribe (observer) {
+    subscribe(observer) {
         this._callSubscriber = observer
-    }
+    },
+    dispatch(action) {
+
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 5,
+                message: this._state.profilePage.newPostText,
+                img: 'https://www.film.ru/sites/default/files/filefield_paths/maxresdefault_1_24.jpg',
+                likesCount: 0
+            };
+            this._state.profilePage.postsData.push(newPost);
+            this._state.profilePage.newPostText = '';
+            this._callSubscriber(this._state)
+        } else if (action.type === 'CHANGE-TEXT') {
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber(this._state)
+        } else if (action.type === 'ADD-MESSAGE') {
+            let newMessage = {
+                id: 6,
+                message: this._state.dialogsPage.newMessageText,
+            };
+            this._state.dialogsPage.messages.push(newMessage);
+            this._state.dialogsPage.newMessageText = '';
+            this._callSubscriber(this._state)
+        } else if (action.type === 'CHANGE-MESSAGE-TEXT') {
+            this._state.dialogsPage.newMessageText = action.newText;
+            this._callSubscriber(this._state)
+        }
+}
 }
 
-window.store= store;
-window.state=store.getState();
+window.store = store;
+window.state = store.getState();
 
 export default store;

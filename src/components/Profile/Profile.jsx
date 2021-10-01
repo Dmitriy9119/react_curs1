@@ -5,15 +5,13 @@ import MyPosts from "../MyPosts/Post/MyPost";
 import store from "../../redux/State";
 
 const Profile = (props) => {
-    debugger;
     return (
         <div>
             <ProfileInfo/>
             <MyPosts
-                postsData={props.state.postsData}
-                addPost={props.addPost}
                 newPostText={props.state.newPostText}
-                changeText={props.changeText}
+                postsData={props.state.postsData}
+                dispatch={props.dispatch}
             />
         </div>
     )

@@ -1,22 +1,23 @@
 import React from 'react';
 import s from '../../Dialogs.module.css'
+import {rerenderEntireTree} from "../../../../index";
 
 
 const TextArea = (props) => {
     let newMessageElement = React.createRef();
     let addMessage = () => {
-        props.addMessage()
+        props.dispatch ({type:'ADD-MESSAGE'})
     }
     let onMessageChange = () => {
         let text = newMessageElement.current.value;
-        props.changeMessageText(text)
+        props.dispatch ({type:'CHANGE-MESSAGE-TEXT', newText: text})
     }
+
 
 return (
     <div>
         <div>
-            <textarea
-                onClick={()=>{props.changeMessageText("")}}
+            <textarea placeholder={'Start typing...'}
                 onChange={onMessageChange} className={s.textArea}
                 ref={newMessageElement}
                 value={props.newMessageText}>

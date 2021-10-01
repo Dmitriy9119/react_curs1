@@ -14,9 +14,8 @@ const Dialogs = (props) => {
             <div className={s.dialogsElements}>{dialogsElements}</div>
             <div className={s.messagesElements}>{messagesElements}</div>
             <div><TextArea
-                addMessage={props.addMessage}
-                changeMessageText={props.changeMessageText}
                 newMessageText={props.state.newMessageText}
+                dispatch={props.dispatch}
             /></div>
         </div>
     )
