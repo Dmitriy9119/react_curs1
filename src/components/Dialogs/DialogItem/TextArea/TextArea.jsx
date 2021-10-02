@@ -1,16 +1,15 @@
 import React from 'react';
 import s from '../../Dialogs.module.css'
-import {rerenderEntireTree} from "../../../../index";
-
+import {addMessageActionCreater, changeMessageTextActionCreater} from "../../../../redux/State";
 
 const TextArea = (props) => {
     let newMessageElement = React.createRef();
     let addMessage = () => {
-        props.dispatch ({type:'ADD-MESSAGE'})
+        props.dispatch (addMessageActionCreater())
     }
     let onMessageChange = () => {
         let text = newMessageElement.current.value;
-        props.dispatch ({type:'CHANGE-MESSAGE-TEXT', newText: text})
+        props.dispatch (changeMessageTextActionCreater(text))
     }
 
 
@@ -29,8 +28,4 @@ return (
     </div>
 )
 }
-
-
 export default TextArea;
-
-// <img src="https://img.icons8.com/ios/500/cloud.png"/>

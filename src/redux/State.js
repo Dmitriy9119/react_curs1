@@ -1,6 +1,11 @@
+const ADD_POST = 'ADD-POST';
+const CHANGE_TEXT = 'CHANGE-TEXT';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const CHANGE_MESSAGE_TEXT = 'CHANGE-MESSAGE-TEXT';
+
 let store = {
     _callSubscriber() {
-    },
+   },
     _state: {
         profilePage: {
             postsData: [
@@ -96,11 +101,13 @@ let store = {
         return this._state
     },
     subscribe(observer) {
+        debugger;
         this._callSubscriber = observer
+        debugger;
     },
     dispatch(action) {
 
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             let newPost = {
                 id: 5,
                 message: this._state.profilePage.newPostText,
@@ -110,10 +117,10 @@ let store = {
             this._state.profilePage.postsData.push(newPost);
             this._state.profilePage.newPostText = '';
             this._callSubscriber(this._state)
-        } else if (action.type === 'CHANGE-TEXT') {
+        } else if (action.type === CHANGE_TEXT) {
             this._state.profilePage.newPostText = action.newText;
             this._callSubscriber(this._state)
-        } else if (action.type === 'ADD-MESSAGE') {
+        } else if (action.type === ADD_MESSAGE) {
             let newMessage = {
                 id: 6,
                 message: this._state.dialogsPage.newMessageText,
@@ -121,14 +128,20 @@ let store = {
             this._state.dialogsPage.messages.push(newMessage);
             this._state.dialogsPage.newMessageText = '';
             this._callSubscriber(this._state)
-        } else if (action.type === 'CHANGE-MESSAGE-TEXT') {
+        } else if (action.type === CHANGE_MESSAGE_TEXT) {
             this._state.dialogsPage.newMessageText = action.newText;
             this._callSubscriber(this._state)
         }
 }
 }
 
+export let addPostActionCreater = () => ({type: ADD_POST})
+export let changeTextActionCreater = (text) => ({
+        type: CHANGE_TEXT,newText: text})
+export let addMessageActionCreater = () => ({type: ADD_MESSAGE})
+export let changeMessageTextActionCreater = (text) => ({
+    type: CHANGE_MESSAGE_TEXT, newText: text})
+
 window.store = store;
 window.state = store.getState();
-
 export default store;
