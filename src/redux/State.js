@@ -1,7 +1,12 @@
-const ADD_POST = 'ADD-POST';
-const CHANGE_TEXT = 'CHANGE-TEXT';
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
+import sideBArReducer from "./sideBar-reducer";
+
 const ADD_MESSAGE = 'ADD-MESSAGE';
 const CHANGE_MESSAGE_TEXT = 'CHANGE-MESSAGE-TEXT';
+const ADD_POST = 'ADD-POST';
+const CHANGE_TEXT = 'CHANGE-TEXT';
+
 
 let store = {
     _callSubscriber() {
@@ -106,41 +111,12 @@ let store = {
         debugger;
     },
     dispatch(action) {
-
-        if (action.type === ADD_POST) {
-            let newPost = {
-                id: 5,
-                message: this._state.profilePage.newPostText,
-                img: 'https://www.film.ru/sites/default/files/filefield_paths/maxresdefault_1_24.jpg',
-                likesCount: 0
-            };
-            this._state.profilePage.postsData.push(newPost);
-            this._state.profilePage.newPostText = '';
-            this._callSubscriber(this._state)
-        } else if (action.type === CHANGE_TEXT) {
-            this._state.profilePage.newPostText = action.newText;
-            this._callSubscriber(this._state)
-        } else if (action.type === ADD_MESSAGE) {
-            let newMessage = {
-                id: 6,
-                message: this._state.dialogsPage.newMessageText,
-            };
-            this._state.dialogsPage.messages.push(newMessage);
-            this._state.dialogsPage.newMessageText = '';
-            this._callSubscriber(this._state)
-        } else if (action.type === CHANGE_MESSAGE_TEXT) {
-            this._state.dialogsPage.newMessageText = action.newText;
-            this._callSubscriber(this._state)
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+        this._state.sideBar = sideBArReducer(this._state.sideBar, action)
+        this._callSubscriber(this._state)
 }
 }
-
-export let addPostActionCreater = () => ({type: ADD_POST})
-export let changeTextActionCreater = (text) => ({
-        type: CHANGE_TEXT,newText: text})
-export let addMessageActionCreater = () => ({type: ADD_MESSAGE})
-export let changeMessageTextActionCreater = (text) => ({
-    type: CHANGE_MESSAGE_TEXT, newText: text})
 
 window.store = store;
 window.state = store.getState();

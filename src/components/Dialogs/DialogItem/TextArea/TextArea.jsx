@@ -1,14 +1,13 @@
 import React from 'react';
 import s from '../../Dialogs.module.css'
-import {addMessageActionCreater, changeMessageTextActionCreater} from "../../../../redux/State";
+import {addMessageActionCreater, changeMessageTextActionCreater} from "../../../../redux/dialogs-reducer";
 
 const TextArea = (props) => {
-    let newMessageElement = React.createRef();
     let addMessage = () => {
         props.dispatch (addMessageActionCreater())
     }
-    let onMessageChange = () => {
-        let text = newMessageElement.current.value;
+    let onMessageChange = (e) => {
+        let text = e.target.value;
         props.dispatch (changeMessageTextActionCreater(text))
     }
 
@@ -18,7 +17,6 @@ return (
         <div>
             <textarea placeholder={'Start typing...'}
                 onChange={onMessageChange} className={s.textArea}
-                ref={newMessageElement}
                 value={props.newMessageText}>
             </textarea>
         </div>
