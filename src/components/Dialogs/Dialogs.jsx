@@ -5,17 +5,19 @@ import Message from "./DialogItem/Message/Message";
 import TextArea from "./DialogItem/TextArea/TextArea";
 
 const Dialogs = (props) => {
-
-    let messagesElements = props.state.messages.map(m => <Message id={m.id} message={m.message}/>)
-    let dialogsElements = props.state.dialogs.map(d => <DialogItem img={d.avatar} name={d.name} id={d.id}/>)
+    let messagesElements = props.messagesElements.map(m => <Message id={m.id} message={m.message}/>)
+    let dialogsElements = props.dialogsElements.map(d => <DialogItem img={d.avatar} name={d.name} id={d.id}/>)
+    let addMessage = props.addMessage
+    let messageChange = props.messageChange
 
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsElements}>{dialogsElements}</div>
             <div className={s.messagesElements}>{messagesElements}</div>
             <div><TextArea
-                newMessageText={props.state.newMessageText}
-                dispatch={props.dispatch}
+                addMessage={addMessage}
+                messageChange={messageChange}
+                newMessageText={props.newMessageText}
             /></div>
         </div>
     )

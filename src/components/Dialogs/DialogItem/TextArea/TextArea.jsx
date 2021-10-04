@@ -1,16 +1,16 @@
 import React from 'react';
 import s from '../../Dialogs.module.css'
-import {addMessageActionCreater, changeMessageTextActionCreater} from "../../../../redux/dialogs-reducer";
+import {addMessage} from './../../DialogsContainer'
 
 const TextArea = (props) => {
-    let addMessage = () => {
-        props.dispatch (addMessageActionCreater())
+
+    let onAddMessage = () => {
+        props.addMessage()
     }
     let onMessageChange = (e) => {
         let text = e.target.value;
-        props.dispatch (changeMessageTextActionCreater(text))
+        props.messageChange(text)
     }
-
 
 return (
     <div>
@@ -21,7 +21,7 @@ return (
             </textarea>
         </div>
         <div className={s.buttonBlock}>
-            <button className={s.button} onClick={addMessage}><span>Send message</span></button>
+            <button className={s.button} onClick={onAddMessage}><span>Send message</span></button>
         </div>
     </div>
 )
