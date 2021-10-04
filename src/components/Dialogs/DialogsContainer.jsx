@@ -7,8 +7,7 @@ import Dialogs from "./Dialogs";
 import {addMessageActionCreater, changeMessageTextActionCreater} from "../../redux/dialogs-reducer";
 
 const DialogsContainer = (props) => {
-    let state = props.store.getState()
-    let newMessageText = state.dialogsPage.newMessageText
+    let dialogsPage = props.store.getState().dialogsPage
     let addMessage = () => {
         props.store.dispatch(addMessageActionCreater())
     }
@@ -19,9 +18,8 @@ const DialogsContainer = (props) => {
         <Dialogs
             addMessage={addMessage}
             messageChange={messageChange}
-            newMessageText={newMessageText}
-            messagesElements={state.dialogsPage.messages}
-            dialogsElements={state.dialogsPage.dialogs}
+            newMessageText={dialogsPage.newMessageText}
+            dialogsPage={dialogsPage}
         />
     )
 }
