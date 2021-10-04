@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
 import App from "./App";
 import React from "react";
-import store from "./redux/State";
+import store from "./redux/redux-store";
 
 
 
@@ -20,7 +20,12 @@ let rerenderEntireTree = (state) => {
 }
 
 rerenderEntireTree(store.getState());
-store.subscribe(rerenderEntireTree);
+
+
+store.subscribe(()=>{
+    let state = store.getState()
+    rerenderEntireTree(state);
+});
 
 
 // If you want your app to work offline and load faster, you can change

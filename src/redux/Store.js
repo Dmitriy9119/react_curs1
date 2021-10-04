@@ -29,7 +29,6 @@ let store = {
             ],
             newPostText: ""
         },
-
         dialogsPage: {
             dialogs: [
                 {
@@ -68,7 +67,6 @@ let store = {
             ],
             newMessageText: ""
         },
-
         sideBar: {
             friend: [
                 {
