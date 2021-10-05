@@ -5,7 +5,6 @@ import Message from "./DialogItem/Message/Message";
 import TextArea from "./DialogItem/TextArea/TextArea";
 
 const Dialogs = (props) => {
-    debugger
 
     let messagesElements = props.dialogsPage.messages.map(m => <Message id={m.id} message={m.message}/>)
     let dialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem img={d.avatar} name={d.name} id={d.id}/>)

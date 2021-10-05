@@ -6,9 +6,7 @@ import DialogItem from "../../Dialogs/DialogItem/DialogItem";
 
 
 const Sidebar = (props) => {
-    debugger
      let showFriends = props.sideBar.friend.map(f => <Friend avatar={f.avatar} name={f.name} id={f.id}/>)
-
     return (
         <div className={s.sidebar}>
             <h2>MY FRIENDS</h2>

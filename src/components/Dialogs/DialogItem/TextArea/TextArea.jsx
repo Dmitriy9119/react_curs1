@@ -4,7 +4,7 @@ import {addMessage} from './../../DialogsContainer'
 
 const TextArea = (props) => {
 
-    let onAddMessage = () => {
+    let onAddMessage = (e) => {
         props.addMessage()
     }
     let onMessageChange = (e) => {

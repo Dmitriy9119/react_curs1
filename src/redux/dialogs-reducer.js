@@ -42,6 +42,7 @@ let initialState = {
     newMessageText: ""
 }
 const dialogsReducer = (state = initialState, action) => {
+    debugger;
 
     switch (action.type) {
         case ADD_MESSAGE:
@@ -49,7 +50,7 @@ const dialogsReducer = (state = initialState, action) => {
                 id: 6,
                 message: state.newMessageText,
             };
-            state.messages.push(newMessage);
+            state.messages.push(newMessage)
             state.newMessageText = '';
             return state;
         case CHANGE_MESSAGE_TEXT:

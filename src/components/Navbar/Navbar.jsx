@@ -5,7 +5,6 @@ import Sidebar from "./Sidebar/Sidebar";
 
 const Navbar = (props) => {
     let state= props.store.getState();
-    debugger
     return <nav className={s.nav}>
         <div className={s.item}>
             <NavLink to="/profile" activeClassName={s.active}>Profile</NavLink>
