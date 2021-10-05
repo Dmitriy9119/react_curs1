@@ -4,14 +4,17 @@ import {BrowserRouter} from "react-router-dom";
 import App from "./App";
 import React from "react";
 import store from "./redux/redux-store";
+import StoreContext, {Provider} from "./store-context";
 
 
 let rerenderEntireTree = (state) => {
     ReactDOM.render
     (<BrowserRouter>
-        <App
-            store={store}
-        />
+        <Provider store={store}>
+            <App
+                store={store} //для сайдбара
+            />
+        </Provider>
     </BrowserRouter>, document.getElementById('root'));
 }
 
