@@ -6,8 +6,8 @@ import TextArea from "./DialogItem/TextArea/TextArea";
 
 const Dialogs = (props) => {
 
-    let messagesElements = props.dialogsPage.messages.map(m => <Message id={m.id} message={m.message}/>)
-    let dialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem img={d.avatar} name={d.name} id={d.id}/>)
+    let messagesElements = props.dialogsPage.messages.map(m => <Message id={m.id} key={m.id} message={m.message}/>)
+    let dialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem img={d.avatar} key={d.id} name={d.name} id={d.id}/>)
 
     return (
         <div className={s.dialogs}>

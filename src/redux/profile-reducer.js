@@ -27,12 +27,13 @@ const profileReducer = (state = initialState, action) => {
                 img: 'https://www.film.ru/sites/default/files/filefield_paths/maxresdefault_1_24.jpg',
                 likesCount: 0
             };
-            state.postsData.push(newPost);
-            state.newPostText = '';
-            return state;
+            return {
+                ...state,
+                postsData: [...state.postsData, newPost],
+                newPostText: ''
+            }
         case CHANGE_TEXT:
-            state.newPostText = action.newText;
-            return state;
+            return {...state, newPostText: action.newText}
         default:
             return state;
     }
