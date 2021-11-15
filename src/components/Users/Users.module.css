@@ -1,0 +1,49 @@
+.users {
+    display: grid;
+    grid-template-areas: 'i ui' 'b ui';
+    grid-template-columns: 10% 40%;
+    margin-bottom: 50px;
+    margin-left: 200px;
+    margin-top: 20px;
+}
+
+.userInfo {
+    display: grid;
+    grid-template-areas: 'fn lcr' 's lct';
+    grid-area: ui;
+    margin-left: 100px;
+    padding: 20px 20px;
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 100%;
+
+}
+
+.img {
+    grid-area: i;
+    width: 100px;
+}
+
+.button {
+    grid-area: b;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.fullName {
+    grid-area: fn;
+}
+
+
+.status {
+    grid-area: s;
+}
+
+.locationCountry {
+    grid-area: lcr;
+}
+
+.locationCity {
+    grid-area: lct;
+}
+

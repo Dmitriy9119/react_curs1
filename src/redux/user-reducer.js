@@ -1,34 +1,35 @@
-import profileReducer from "./profile-reducer";
-
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const CHANGE_MESSAGE_TEXT = 'CHANGE-MESSAGE-TEXT';
 
 let initialState = {
     dialogs: [
         {
             avatar: 'https://toppng.com/uploads/preview/user-account-management-logo-user-icon-11562867145a56rus2zwu.png',
             id: '1',
-            name: 'Dimych'
+            name: 'Dimych',
+            message: 'YO'
         },
         {
             avatar: 'https://toppng.com/uploads/preview/user-account-management-logo-user-icon-11562867145a56rus2zwu.png',
             id: '2',
-            name: 'Egor'
+            name: 'Egor',
+            message: 'YO'
         },
         {
             avatar: 'https://toppng.com/uploads/preview/user-account-management-logo-user-icon-11562867145a56rus2zwu.png',
             id: '3',
-            name: 'Lexa'
+            name: 'Lexa',
+            message: 'YO'
         },
         {
             avatar: 'https://toppng.com/uploads/preview/user-account-management-logo-user-icon-11562867145a56rus2zwu.png',
             id: '4',
-            name: 'Vetal'
+            name: 'Vetal',
+            message: 'YO'
         },
         {
             avatar: 'https://toppng.com/uploads/preview/user-account-management-logo-user-icon-11562867145a56rus2zwu.png',
             id: '5',
-            name: 'Lenka'
+            name: 'Lenka',
+            message: 'YO'
         }
     ],
     messages: [
